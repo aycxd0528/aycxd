@@ -357,7 +357,7 @@ class _categoryViewState extends State<categoryView> {
                       crossAxisCount: 2,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 16,
-                      childAspectRatio: 0.8,
+                      childAspectRatio: 0.85,
                     ),
                     itemCount: _isRandomAllMode ? _randomAllProducts.length : (_products[_categories[_selectedCategoryIndex]['id']]?.length ?? 0),
                     itemBuilder: (context, index) {
@@ -421,20 +421,25 @@ class _categoryViewState extends State<categoryView> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
-                                          '¥${product['price']}',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.red,
-                                            fontWeight: FontWeight.bold,
+                                        Expanded(
+                                          child: Text(
+                                            '¥${product['price']}',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
+                                        SizedBox(width: 8),
                                         GestureDetector(
                                           onTap: () {
                                             _addToCart(product);
                                           },
                                           child: Container(
-                                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                             decoration: BoxDecoration(
                                               color: Colors.red,
                                               borderRadius: BorderRadius.circular(12),
@@ -442,10 +447,12 @@ class _categoryViewState extends State<categoryView> {
                                             child: Text(
                                               '加入购物车',
                                               style: TextStyle(
-                                                fontSize: 12,
+                                                fontSize: 11,
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w500,
                                               ),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
                                         ),

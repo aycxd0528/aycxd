@@ -417,15 +417,16 @@ class _CartViewState extends State<CartView> {
                           );
                         }
                       : null,
-                  child: Text('结算'),
+                  child: Text('结算', style: AppTextStyles.button),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: AppColors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                    elevation: 2,
+                    shadowColor: AppColors.primary.withOpacity(0.3),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    elevation: 4,
-                    shadowColor: Colors.red.withOpacity(0.5),
                   ),
                 ),
               ],
